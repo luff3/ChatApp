@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-toastify';
-//import {toast } from 'react-toastify';
+import { useAuthContext } from '../context/authContext';
 
 
 const useSignup = () => {
+    const { setAuthUser } = useAuthContext();
     const [loading, setLoading] = useState(false);
     const API = 'http://localhost:8000/api/auth/signup';
 
@@ -24,6 +25,9 @@ const useSignup = () => {
 
 
             const data = await res.json();
+
+            localStorage.setItem("chat-user", JSON.stringify(data));
+            setAuthUser(data);
 
             console.log(data);
         } catch (error) {

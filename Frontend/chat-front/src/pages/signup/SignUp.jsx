@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useSignup from '../../hooks/useSignup';
-import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -12,7 +11,7 @@ const SignUp = () => {
         gender: ''
     });
 
-	const {loading, signup} = useSignup();
+	const { signup } = useSignup();
 
     const handleChange = (e) => {
         const { name, value, type } = e.target;
