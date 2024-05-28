@@ -9,8 +9,10 @@ const useLogout = () => {
     const logout = async () => {
         setLoading(true);
         try {
-            const res = await axios.post('http://localhost:8000/api/auth/logout');
-            //const data = await res.json();
+            const res = await fetch("/api/auth/logout", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+			});
 
             console.log(res);
             if(res.error){

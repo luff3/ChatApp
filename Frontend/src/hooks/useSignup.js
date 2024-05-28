@@ -6,7 +6,7 @@ import { useAuthContext } from '../context/authContext';
 const useSignup = () => {
     const { setAuthUser } = useAuthContext();
     const [loading, setLoading] = useState(false);
-    const API = 'http://localhost:8000/api/auth/signup';
+    const API = '/api/auth/signup';
 
     const signup = async ({fullName, username, password, confirmPassword, gender }) => {
         const success = handleInputError({fullName, username, password, confirmPassword, gender});
