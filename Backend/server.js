@@ -10,12 +10,17 @@ import connectToMongoDB from "./db/connectToMongoDB.js";
 
 
 dotenv.config();
+const __dirname = path.resolve();
+
 
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-
-app.use(cors()); 
+app.use(cors());
+// app.use(cors({
+//     origin: 'https://localhost:3000', // URL вашого фронтенду
+//     credentials: true, // Дозволити кукі в запитах
+// }));
 app.use(express.json()); 
 app.use(cookieParser())
 
