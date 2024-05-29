@@ -7,12 +7,13 @@ const Conversations = () => {
 	console.log('Conversations:', conversations);
 	return (
 		<div className='py-2 flex flex-col overflow-auto'>
-			<Conversation />
-			<Conversation />
-			<Conversation />
-			<Conversation />
-			<Conversation />
-			<Conversation />
+			{conversations.map((conversation, index) => (
+				<Conversation
+					key={conversation._id} // Використовуйте унікальний ключ, якщо доступний
+					conversation={conversation}
+					lastIndex={index === conversations.length - 1}
+				/>
+		))}
 		</div>
 	);
 };
