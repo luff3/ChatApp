@@ -27,7 +27,7 @@ const useLogin = () => {
 
             toast.success("Happy");
         } catch (error) {
-            toast.error('Again');
+            toast.error(error.message);
             console.log(error);
         }finally{
             setLoading(false)
